@@ -1,5 +1,9 @@
 import styled from "styled-components/native";
 
+interface props {
+  active?: boolean;
+}
+
 export const Container = styled.View`
   width: 370px;
   height: 363px;
@@ -78,6 +82,10 @@ export const TimeSelect = styled.View`
   background: #e7e7e7;
   border-radius: 12px;
   margin-top: 8px;
+  justify-content: center;
+  padding: 0px 4px;
+  align-items: center;
+  flex-direction: row;
 `;
 
 export const Footer = styled.View`
@@ -114,4 +122,23 @@ export const FooterValue = styled.Text`
   font-size: 22px;
   line-height: 26px;
   color: #000000;
+`;
+
+export const TimeSelector = styled.TouchableOpacity<props>`
+  width: 87px;
+  height: 31px;
+  background: ${(props) => (props.active ? "#9b9b9b" : "transparent")};
+  border-radius: 10px;
+  margin: 0px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const SelectorText = styled.Text<props>`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  color: ${(props) => (props.active ? "#ffffff" : "#9b9b9b")};
 `;

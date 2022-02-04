@@ -20,9 +20,9 @@ export const SelectContainer = styled.View`
 export const Select = styled(Picker)`
   width: 100%;
   height: 100%;
-`;
+  color: #858585;`;
 
-export const AddButton = styled.View`
+export const AddButton = styled.TouchableOpacity`
   width: 55px;
   height: 55px;
   background: #0a1633;

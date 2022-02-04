@@ -9,17 +9,17 @@ import DisplayMoedas from "../../DisplayMoedas";
 import { MoedasContext } from "../../../contexts/MoedasContext";
 
 //Interfaces
-import { IMoedas } from "../../../interfaces/Moedas";
+import { IMoedas } from "../../../interfaces/Moedas.interface";
 import AppLoading from "expo-app-loading";
 
 export default function FlatListMoedas() {
-  const { moedas } = useContext(MoedasContext);
+  const { renderList } = useContext(MoedasContext);
 
-  return (
-    <S.Container>
-      {!!moedas ? (
+  if (!!renderList && renderList.length > 0) {
+    return (
+      <S.Container>
         <FlatList<IMoedas>
-          data={moedas}
+          data={renderList}
           renderItem={({ item, index }) => {
             return (
               <DisplayMoedas
@@ -27,14 +27,19 @@ export default function FlatListMoedas() {
                 symbol={item.symbol}
                 valor={item.priceUsd}
                 cp24={item.changePercent24Hr}
+                id={item.id}
               />
             );
           }}
           keyExtractor={(moeda) => moeda.id}
         />
-      ) : (
-        <AppLoading />
-      )}
-    </S.Container>
-  );
+      </S.Container>
+    );
+  } else {
+    return (
+      <S.Container>
+        <S.Text>Que tal adicionar uma moeda na sua home? Basta selecionar uma moeda acima e apertar em +</S.Text>
+      </S.Container>
+    );
+  }
 }

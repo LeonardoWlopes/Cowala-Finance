@@ -24,6 +24,7 @@ export default function App() {
         <StatusBar style="auto" />
         <Layout>
           <MoedasProvider>
+            <StatusBar style="auto" />
             <Routes />
           </MoedasProvider>
         </Layout>

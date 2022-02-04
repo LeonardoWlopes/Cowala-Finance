@@ -5,3 +5,5 @@ export const Container = styled.View`
   height: 100%;
   padding: 0px 8px;
 `;
+
+export const Text = styled.Text``;
