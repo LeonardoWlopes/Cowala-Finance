@@ -45,8 +45,8 @@ function DisplayMoedas({ nome, symbol, valor, cp24, id }: props) {
   }
 
   //Formatador de valores
-  function currencyFormat(num: string) {
-    return parseFloat(num)
+  function currencyFormat(num: string | number) {
+    return parseFloat(num as string)
       .toFixed(2)
       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
   }
@@ -96,6 +96,9 @@ function DisplayMoedas({ nome, symbol, valor, cp24, id }: props) {
       setRenderList(newRenderList);
     }
   }
+
+  //pega o menor e maior valor para
+  const allValues = graphData?.map((item) => parseInt(item.priceUsd));
 
   return (
     <S.Container>
@@ -158,11 +161,15 @@ function DisplayMoedas({ nome, symbol, valor, cp24, id }: props) {
       <S.Footer>
         <S.FooterLeft>
           <S.FooterText>MÍN</S.FooterText>
-          <S.FooterValue>$ {currencyFormat(valor)}</S.FooterValue>
+          <S.FooterValue>
+            $ {!!allValues && currencyFormat(Math.min(...allValues))}
+          </S.FooterValue>
         </S.FooterLeft>
         <S.FooterRight>
           <S.FooterText>MÁX</S.FooterText>
-          <S.FooterValue>$ {currencyFormat(valor)}</S.FooterValue>
+          <S.FooterValue>
+            $ {!!allValues && currencyFormat(Math.max(...allValues))}
+          </S.FooterValue>
         </S.FooterRight>
       </S.Footer>
     </S.Container>

@@ -2,8 +2,10 @@ import { Picker } from "@react-native-picker/picker";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
+  max-width: 380px;
   width: 100%;
   height: 80px;
+  margin: 0px auto;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,7 +13,7 @@ export const Container = styled.View`
 `;
 
 export const SelectContainer = styled.View`
-  width: 315px;
+  width: 80%;
   height: 55px;
   border-radius: 12px;
   background: #f5f5f5;
@@ -20,7 +22,8 @@ export const SelectContainer = styled.View`
 export const Select = styled(Picker)`
   width: 100%;
   height: 100%;
-  color: #858585;`;
+  color: #858585;
+`;
 
 export const AddButton = styled.TouchableOpacity`
   width: 55px;

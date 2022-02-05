@@ -10,7 +10,6 @@ import { MoedasContext } from "../../../contexts/MoedasContext";
 
 //Interfaces
 import { IMoedas } from "../../../interfaces/Moedas.interface";
-import AppLoading from "expo-app-loading";
 
 export default function FlatListMoedas() {
   const { renderList } = useContext(MoedasContext);

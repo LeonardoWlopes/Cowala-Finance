@@ -5,11 +5,7 @@ import * as S from "./styles";
 import SelectMoedas from "../../components/SelectMoedas";
 import FlatListMoedas from "../../components/FlatLists/Moedas";
 
-//Contexr
-import { MoedasContext } from "../../contexts/MoedasContext";
-
 export default function Home() {
-  const { renderList } = useContext(MoedasContext);
   return (
     <S.Container>
       <SelectMoedas />

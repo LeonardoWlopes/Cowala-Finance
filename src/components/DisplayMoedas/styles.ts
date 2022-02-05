@@ -5,7 +5,10 @@ interface props {
 }
 
 export const Container = styled.View`
-  width: 370px;
+  display: flex;
+  width: auto;
+  max-width: 370px;
+  min-width: 300px;
   height: 363px;
   background: #f5f5f5;
   border-radius: 12px;
@@ -125,7 +128,9 @@ export const FooterValue = styled.Text`
 `;
 
 export const TimeSelector = styled.TouchableOpacity<props>`
-  width: 87px;
+  width: 100%;
+  min-width: 70px;
+  max-width: 87px;
   height: 31px;
   background: ${(props) => (props.active ? "#9b9b9b" : "transparent")};
   border-radius: 10px;
